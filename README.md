@@ -155,14 +155,14 @@ Use the following prefix to create branches:
   ``` bash
   @ CALL
     URL:PORT/weatherForecasts/{weatherType}/count
+  @ PARAM
+    - Name: weatherType
+      - Parameter type: Request parameter
+      - Value type: String
+        - Values: [DROUGHT, NORMAL, OPTIMAL, RAIN]
   @ RETURN
     An integer
-  ```
-  A _weatherType_ must be one of the following values:
-  * DROUGHT
-  * NORMAL
-  * OPTIMAL
-  * RAIN
+  ``` 
 * Weather forecast retriever for the maximum rainy day.
   Gets the weather forecast information related to the day with maximum rain.
   ``` bash
