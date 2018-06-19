@@ -1,4 +1,4 @@
-package galaxy.weather.forecaster.Util;
+package galaxy.weather.forecaster.util;
 
 import static org.junit.Assert.*;
 
@@ -10,7 +10,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import galaxy.weather.forecaster.Application;
 import galaxy.weather.forecaster.domain.Point;
-import galaxy.weather.forecaster.util.GeometricFunctions;
 
 @RunWith(SpringRunner.class)
 @ContextConfiguration(classes = {Application.class})
