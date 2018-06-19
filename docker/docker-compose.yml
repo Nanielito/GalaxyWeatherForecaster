@@ -1,0 +1,44 @@
+version: '3.2'
+services:
+  gwf-db:
+    image: mongo
+    volumes:
+      - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+    container_name: gwf-db
+    hostname: gwf
+    networks:
+      - gwfnet
+    ports:
+      - "27017:27017"
+  gwf-app:
+    image: gwf/gwf-app
+    container_name: gwf-app
+    hostname: gwf
+    depends_on:
+      - gwf-db
+    networks:
+      - gwfnet
+    environment:
+      - DB_HOST=gwf-db
+    ports:
+      - "8080:8080"
+  gwf-app-dev:
+    image: gwf/gwf-app
+    volumes:
+      - ./deployments:/gwf
+    container_name: gwf-app-dev
+    hostname: gwf
+    depends_on:
+      - gwf-db
+    networks:
+      - gwfnet
+    environment:
+      - DB_HOST=gwf-db
+    ports:
+      - "8080:8080"
+networks:
+  gwfnet:
+    driver: bridge
+    ipam:
+      config:
+      - subnet: 172.32.8.0/24
