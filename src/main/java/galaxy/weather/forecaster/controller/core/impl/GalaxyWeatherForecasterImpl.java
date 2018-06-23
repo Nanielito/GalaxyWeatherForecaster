@@ -1,5 +1,6 @@
 package galaxy.weather.forecaster.controller.core.impl;
 
+import java.util.Comparator;
 import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
@@ -232,13 +233,7 @@ public class GalaxyWeatherForecasterImpl implements IGalaxyWeatherForecaster {
       WeatherForecast weatherForecast = null;
 
       if (rainyDays.size() > 0) {
-        weatherForecast = new WeatherForecast(WeatherForecastTypeEnum.RAIN, 0, 0);
-
-        for (WeatherForecast rainyDay : rainyDays) {
-          if (weatherForecast.getPerimeter() < rainyDay.getPerimeter()) {
-            weatherForecast = rainyDay;
-          }
-        }
+        weatherForecast = rainyDays.stream().max(Comparator.comparing(WeatherForecast::getPerimeter)).orElse(null);
       }
 
       return weatherForecast;
