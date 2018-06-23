@@ -44,11 +44,13 @@ public class GeometricFunctions {
   }
 
   /**
+   * Calculates a scalar product between points.
    *
-   * @param p1
-   * @param p2
-   * @param p3
-   * @return
+   * @param p1 A {@link Point} which represents the first point.
+   * @param p2 A {@link Point} which represents the second point.
+   * @param p3 A {@link Point} which represents the third point.
+   *
+   * @return A <code>double</code> which represents the scalar product between the points.
    */
   private static double sign(Point p1, Point p2, Point p3) {
     double product = (p1.getX() - p3.getX()) * (p2.getY() - p3.getY()) -
