@@ -96,6 +96,6 @@ public class WeatherForecast {
    */
   @Override
   public String toString() {
-    return String.format(WEATHER_FORECAST_FORMAT, getClass().getName(), weatherForecastType.getType(), perimeter, day);
+    return String.format(WEATHER_FORECAST_FORMAT, getClass().getName(), id, weatherForecastType.getType(), perimeter, day);
   }
 }
